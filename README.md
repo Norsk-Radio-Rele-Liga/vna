@@ -1,6 +1,8 @@
 # vna
 Programsnutter og filer som support for VNA boken
 
+Vær obs på at programsnuttene er enkle, og inneholder ikke feilsjekking. Det kan være at ditt oppsett bruker . og ikke , som komma. 
+
 ### BPF_filter.py
 Sett filterparameterene i bunnen av skriptet og kjør det. Utfører beregningen for standard, 2. ordens kondensatorkoblet båndpassfilter: 
 ![bpf_c2](https://github.com/user-attachments/assets/be107097-914f-421f-ac48-2219b2e048de)
