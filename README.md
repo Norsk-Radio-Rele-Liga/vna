@@ -17,7 +17,7 @@ Kjør skriptet. Dette ber om verdiene i skriptet.
 ![sch_xtal_filter](https://github.com/user-attachments/assets/6d322096-4905-44d7-a4ac-2e84f138266a)
 
 
-### commonmode.py s21.s2p s31.s2p
+### commonmode.py <s21.s2p> <s31.s2p>
 Beregner common mode dempning basert på 2 komplette s-parameter filer. Se kapittelet i boken.
 
 
@@ -33,7 +33,7 @@ Eksempelkode for å sette nettverksanalysatoren til en enkel frekvens, gjøre m�
 Eksempelkode for å gjøre ett sweep, regne om S-parameterene til impedans og fase, og plotte dataene. 
 
 
-### combine_s2p.py file_S11_S21.s2p file_S22_S12.s2p output_file.s2p
+### combine_s2p.py <file_S11_S21.s2p> <file_S22_S12.s2p> <output_file.s2p>
 Kombinerer S-parameter filer fra NanoVNA, hvor S12 og S22 er tomme, til korrekte Touchstonefiler. Dette krever at det måles fremover og revers, at filene lagres som separate filer og kombineres med dette programmet. 
 
 
