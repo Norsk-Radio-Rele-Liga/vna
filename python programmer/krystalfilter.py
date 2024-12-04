@@ -28,10 +28,10 @@
 
 import math
 
-def calculate_C(f0, Cm_pF, B, Lm, N):
+def calculate_C(f0, Cm_pF, B, Lm_m, N):
     # Konverter Cm fra pF til F
-    Cm = Cm_pF * 1e-12
-    
+    Cm = Cm_pF * 1e-15
+    Lm=Lm_m *1e-3
     # Beregn k
     k = 0.5 * math.exp(math.log(2) / N)
     
@@ -50,11 +50,11 @@ def calculate_C(f0, Cm_pF, B, Lm, N):
     return C_pF, Rt
 
 # Input verdier (du kan endre disse etter behov)
-Lm = float(input("Enter Lm in Henry: "))  # Lm i H
-Cm_pF = float(input("Enter Cm in picofarad (pF): "))  # Cm i pF
-f0 = float(input("Enter f0 in Hz: "))  # f0 i Hz
-B = float(input("Enter B: "))  # B er en konstant eller verdi du velger
-N = float(input("Enter N: "))  # N er en konstant eller verdi du velger
+Lm = float(input("Enter Lm in milliHenry: "))  # Lm i H
+Cm_pF = float(input("Enter Cm in femtofarad (pF): "))  # Cm i pF
+f0 = float(input("Enter frequency in Hz: "))  # f0 i Hz
+B = float(input("Enter Bandwith: "))  # B er en konstant eller verdi du velger
+N = float(input("Enter Number of crystals: "))  # N er en konstant eller verdi du velger
 
 # Beregn C og Rt
 C_pF, Rt = calculate_C(f0, Cm_pF, B, Lm, N)
