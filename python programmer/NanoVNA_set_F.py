@@ -34,8 +34,8 @@ ser = serial.Serial('COM6', 115200, timeout=1)
 # Endre 'COM3' til riktig port for ditt system
 time.sleep(2)
 
-# Skriv kommando til NanoVNA for å sette frekvensområde
-ser.write(b'sweep 5000000 30000000 50 \r\n')
+# Skriv kommando til NanoVNA for å sette frekvensområde fra 500kHz til 30MHz med 101 punkter
+ser.write(b'sweep 500000 30000000 101 \r\n')
 time.sleep(0.1)
 ser.readline() # leser en linje fordi nanoVNA sender tilbake kommandoen
 
