@@ -42,27 +42,27 @@ def send_and_receive(ser, command):
     return response
 
 # Oppretter forbindelser til COM-portene
-com6 = serial.Serial('COM6', baudrate=9600, timeout=1)
-com11 = serial.Serial('COM11', baudrate=9600, timeout=1)
+vna = serial.Serial('COM6', baudrate=9600, timeout=1)
+attenuator = serial.Serial('COM11', baudrate=9600, timeout=1)
 
 
 # Liste for å lagre S-parameterverdier i dB
 s_parameter_values_db = []
 dBset = []
 
-# For loop for å sende "dB:nn.n" på COM11, motta data fra COM6 og plotte
+# For loop for å sende "dB:nn.n" på attenuator, motta data fra vnaog plotte
 for i in range(64):  # Fra 0.0 til 31.5 med steg på 0.5 (64 verdier)
     db_value =  31.5 - (i * 0.5)
     command = f"dB:{db_value:.1f}"
     
     # Sender dB-kommando til attenuator
-    send_and_receive(com11, command)
+    send_and_receive(attenuator, command)
     
     # Sender sweep-kommandoen til VNA
-    send_and_receive(com6, "scan 10000000 10000000 1")
+    send_and_receive(vna , "scan 10000000 10000000 1")
 
     # Sender "data 1" til VNA og mottar responsen
-    response = send_and_receive(com6, "data 1")  
+    response = send_and_receive(vna , "data 1")  
     
     dBset.append(db_value*-1.0)
 
@@ -94,5 +94,5 @@ else:
     plt.show()
 
 # Lukk serieportene
-com6.close()
-com11.close()
+vna.close()
+attenuator.close()
