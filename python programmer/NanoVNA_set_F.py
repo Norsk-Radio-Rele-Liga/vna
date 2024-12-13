@@ -37,13 +37,13 @@ time.sleep(2)
 # Skriv kommando til NanoVNA for å sette frekvensområde
 ser.write(b'sweep 5000000 30000000 50 \r\n')
 time.sleep(0.1)
-ser.readline()
+ser.readline() # leser en linje fordi nanoVNA sender tilbake kommandoen
 
 
 # Hent S21 data fra NanoVNA
-ser.write(b'data 1\r\n')
+ser.write(b'data 1 \r\n')
 time.sleep(0.1)
-ser.readline()
+ser.readline() # leser en linje fordi nanoVNA sender tilbake kommandoen
 time.sleep(1)
 data = ser.read(ser.inWaiting()).decode('utf-8')
 
