@@ -30,18 +30,23 @@ import serial
 import time
 
 # Sett opp seriell kommunikasjon
-ser = serial.Serial('COM3', 115200, timeout=1)  
+ser = serial.Serial('COM6', 115200, timeout=1)  
 # Endre 'COM3' til riktig port for ditt system
 time.sleep(2)
 
 # Skriv kommando til NanoVNA for å sette frekvensområde
-ser.write(b'sweep 5000000 30000000\n')
+ser.write(b'sweep 5000000 30000000 50 \r\n')
 time.sleep(0.1)
+ser.readline()
+
 
 # Hent S21 data fra NanoVNA
-ser.write(b'data 1\n')
+ser.write(b'data 1\r\n')
 time.sleep(0.1)
+ser.readline()
+time.sleep(1)
 data = ser.read(ser.inWaiting()).decode('utf-8')
+
 
 # Skriv ut dataene og lukk tilkoblingen
 print(data)
