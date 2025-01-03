@@ -23,7 +23,7 @@ Kjør skriptet. Dette ber om verdiene i skriptet.
 Beregner common mode dempning basert på 2 komplette s-parameter filer. Se kapittelet i boken.
 
 
-### Rollet.py S-parameter.s2p
+### Rollet.py <S-parameter.s2p>
 Beregner Rollets stabilitetsfaktor for en gitt forsterker ut fra S-parameterene. Plotter en graf. 
 
 
